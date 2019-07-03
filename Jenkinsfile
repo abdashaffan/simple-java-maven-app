@@ -1,8 +1,9 @@
+@Library('simple-maven-library') _
+
 pipeline {
     agent {
-        docker {
-            image 'maven:3-alpine' 
-            args '-v /root/.m2:/root/.m2' 
+        script {
+            load_docker_agent image 'maven:3-alpine' args '-v /root/.m2:/root/.m2'
         }
     }
     stages {
